@@ -5,6 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/estilos.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="jsuml2/build/css/UDStyle.css" media="screen"/>
+        <script type="text/javascript" src="jsuml2/build/UDCore.js"></script>
+        <script type="text/javascript" src="jsuml2/build//UDModules.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+
+                var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
+                
+                usepackageDiagram.draw();
+            }
+        </script>
         <style>
             .menuDPackage{
                 width: 15%;
@@ -13,57 +24,81 @@
             .infoDPackage{
                 width: 20%;
                 float: left;
-                background-color: #2595D2;
+                text-align: center;
             }
+
             .divDiagrama{
                 width: 65%;
                 float: left;
                 background-color: #33B7FF;
             }
-            .btnPackage{
-
-            }
-            .btnPackageContainer{
-
-            }
-            .btnDependecy{
-
-            }
-            .btnPackageMerge{
-
-            }
-            .btnPackagePublic{
-
-            }
-            .btnPackagePrivate{
-
-            }
-            .btnNote{
-
-            }
-            .btnRelacion{
-
-            }
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            li {
-                padding: 5px;
-                margin-bottom: 5px;
-            }
-            .menuDPackage input[type = button]{
-                font-family: "Lucida Sans", sans-serif; 
-                width: 80%;
+            .button {
+                width: 95%;
                 background-color: #33B7FF;
-                color: white;
-                padding: 5px 5px;
                 border: none;
-                border-radius: 4px;
+                border-radius: 6px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 12px;
+                margin: 5px 2px;
+                opacity: 0.6;
+                transition: 0.3s;
+                display: inline-block;
+                text-decoration: none;
                 cursor: pointer;
-                float: center;
             }
+            .button:hover {opacity: 1}
+            /* .menuDPackage ul {
+                 list-style-type: none;
+                 margin: 0;
+                 padding: 0;
+             }
+             .menuDPackage li {
+                 padding: 5px;
+                 margin-bottom: 5px;
+             }
+             .menuDPackage input[type = button]{
+                 font-family: "Lucida Sans", sans-serif; 
+                 width: 80%;
+                 background-color: #33B7FF;
+                 color: white;
+                 padding: 5px 5px;
+                 border: none;
+                 border-radius: 4px;
+                 cursor: pointer;
+                 float: center;
+             }
+            @media screen and (max-width: 1300px) {
+                .menuDPackage input[type = button]{
+                    font-family: "Lucida Sans", sans-serif; 
+                    width: 80%;
+                    background-color: #33B7FF;
+                    color: white;
+                    padding: 5px 5px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    float: center;
+                }
+            }*/
+            @media screen and (max-width: 900px) {
+                .menuDPackage, .infoDPackage{
+                    width: 50%;
+                    margin-top: 0;
+                }
+                .divDiagrama{
+                    width: 100%;
+                    margin-top: 0;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .menuDPackage, .infoDPackage, .divDiagrama{
+                    width: 100%;
+                    margin-top: 0;
+                }
+            }
+
         </style>
     </head>
     <body>
@@ -74,59 +109,30 @@
             <label>Bienvenido: admin</label>
         </div>
         <div class="tituloD">
-            <h1>CREACIÓN DE DIAGRAMAS PAQUETES (PACKAGE)</h1>
+            <h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>
         </div>
-        <div class="menuDPackage">
-            <ul>
-                <li>
-                    Elementos UML
-                </li>
-                <li>
-                    <input type="button" value="Package">
-                </li>
-                <li>
-                    <input type="button" value="Package Container">
-                </li>
-                <li>
-                    <input type="button" value="Dependecy">
-                </li>
-                <li>
-                    <input type="button" value="Package Merge">
-                </li>
-                <li>
-                    <input type="button" value="Package Public Import">
-                </li>
-                <li>
-                    <input type="button" value="Package Private Import">
-                </li>
-                <li>
-                    <input type="button" value="Note">
-                </li>
-                <li>
-                    <input type="button" value="Anchor">
-                </li>
-                <li>
-                    Funcionalidades
-                </li>
-                <li>
-                    <input type="button" value="Guardar">
-                </li>
-                <li>
-                    <input type="button" value="Comentario">
-                </li>
-                <li>
-                    <input type="button" value="Borrar">
-                </li>
-                <li>
-                    <input type="button" value="Regresar">
-                </li>
-            </ul>
-        </div>
-        <div class="infoDPackage">
-            a
-        </div>
-        <div class="divDiagrama">
-            a
+        <div class="limpia">
+            <div class="menuDPackage">
+                <label>Elementos UML</label>
+                <button class="button">Package</button>
+                <button class="button">Package Container</button>
+                <button class="button">Dependecy</button>
+                <button class="button">Package Merge</button>
+                <button class="button">Package Public Import</button>
+                <button class="button">Package Private Import</button>
+                <button class="button">Note</button>
+                <label>Acciones</label>
+                <button class="button">Guardar</button>
+                <button class="button">Comentario</button>
+                <button class="button">Borrar</button>
+                <button class="button">Regresar</button>
+            </div>
+            <div class="infoDPackage">
+                <label>Propiedades</label>
+            </div>
+            <div id="usePackageDiagram" class="divDiagrama">
+                a
+            </div>
         </div>
     </body>
 </html>
