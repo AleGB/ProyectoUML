@@ -8,11 +8,12 @@
         <link type="text/css" rel="stylesheet" href="jsuml2/build/css/UDStyle.css" media="screen"/>
         <script type="text/javascript" src="jsuml2/build/UDCore.js"></script>
         <script type="text/javascript" src="jsuml2/build//UDModules.js"></script>
+        <script src="https://kit.fontawesome.com/d09e085a5a.js" crossorigin="anonymous"></script>
         <script type="text/javascript">
             window.onload = function () {
 
                 var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
-                
+
                 usepackageDiagram.draw();
             }
         </script>
@@ -34,55 +35,31 @@
             }
             .button {
                 width: 95%;
-                background-color: #33B7FF;
+                background-color: #FB2A7F;
                 border: none;
                 border-radius: 6px;
                 color: white;
-                padding: 15px 32px;
+                padding: 15px 15px;
                 text-align: center;
                 font-size: 12px;
                 margin: 5px 2px;
-                opacity: 0.6;
+                opacity: 0.7;
                 transition: 0.3s;
                 display: inline-block;
                 text-decoration: none;
                 cursor: pointer;
+                text-transform: uppercase; 
             }
             .button:hover {opacity: 1}
-            /* .menuDPackage ul {
-                 list-style-type: none;
-                 margin: 0;
-                 padding: 0;
-             }
-             .menuDPackage li {
-                 padding: 5px;
-                 margin-bottom: 5px;
-             }
-             .menuDPackage input[type = button]{
-                 font-family: "Lucida Sans", sans-serif; 
-                 width: 80%;
-                 background-color: #33B7FF;
-                 color: white;
-                 padding: 5px 5px;
-                 border: none;
-                 border-radius: 4px;
-                 cursor: pointer;
-                 float: center;
-             }
-            @media screen and (max-width: 1300px) {
-                .menuDPackage input[type = button]{
-                    font-family: "Lucida Sans", sans-serif; 
-                    width: 80%;
-                    background-color: #33B7FF;
-                    color: white;
-                    padding: 5px 5px;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    float: center;
-                }
-            }*/
-            @media screen and (max-width: 900px) {
+            img {
+                padding: 0px 2px;
+                margin:  0px 10px;
+            }
+            .menuDPackage i {
+                font-size:20px;
+                margin: 0px 10px;
+            }
+            @media screen and (max-width: 1000px) {
                 .menuDPackage, .infoDPackage{
                     width: 50%;
                     margin-top: 0;
@@ -106,29 +83,29 @@
             <a href="LogoutServlet">SING OUT</a>
         </div>
         <div class="usuario">
-            <label>Bienvenido: admin</label>
+            <label>BIENVENIDO: admin</label>
         </div>
         <div class="tituloD">
             <h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>
         </div>
         <div class="limpia">
             <div class="menuDPackage">
-                <label>Elementos UML</label>
-                <button class="button">Package</button>
-                <button class="button">Package Container</button>
-                <button class="button">Dependecy</button>
-                <button class="button">Package Merge</button>
-                <button class="button">Package Public Import</button>
-                <button class="button">Package Private Import</button>
-                <button class="button">Note</button>
-                <label>Acciones</label>
-                <button class="button">Guardar</button>
-                <button class="button">Comentario</button>
-                <button class="button">Borrar</button>
-                <button class="button">Regresar</button>
+                <label>ELEMENTOS UML</label>
+                <button class="button"><img src="imagenes/package.png" alt="x"/><br>Package</button>
+                <button class="button"><img src="imagenes/packageContainer.png" alt="x"/><br>Package Container</button>
+                <button class="button"><img src="imagenes/dependecy.png" alt="x"/><br>Dependecy</button>
+                <button class="button"><img src="imagenes/merge.png" alt="x"/><br>Package Merge</button>
+                <button class="button"><img src="imagenes/import.png" alt="x"/><br>Package Public Import</button>
+                <button class="button"><img src="imagenes/acces.png" alt="x"/><br>Package Private Import</button>
+                <button class="button"><img src="imagenes/note.png" alt="x"/><br>Note</button>
+                <label>ACCIONES</label>
+                <button class="button"><i class="fas fa-save"></i>Guardar</button>
+                <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
+                <button class="button"><i class="fas fa-backspace"></i>Borrar</button>
+                <button class="button"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
             </div>
             <div class="infoDPackage">
-                <label>Propiedades</label>
+                <label>PROPIEDADES</label>
             </div>
             <div id="usePackageDiagram" class="divDiagrama">
                 a
