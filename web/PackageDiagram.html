@@ -11,10 +11,22 @@
         <script src="https://kit.fontawesome.com/d09e085a5a.js" crossorigin="anonymous"></script>
         <script type="text/javascript">
             window.onload = function () {
-
                 var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
+                dibujar(usepackageDiagram);
 
-                usepackageDiagram.draw();
+            }
+//poner en el mismo div
+            function crear() {
+                var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
+            }
+
+            function dibujar(e) {
+                e.draw();
+
+            }
+            function myFunction() {
+                var divPackage = document.getElementById('elementoPackage');
+                divPackage.style.display = 'block'; // show - use this for block elements (div, p)
             }
         </script>
         <style>
@@ -75,7 +87,6 @@
                     margin-top: 0;
                 }
             }
-
         </style>
     </head>
     <body>
@@ -91,7 +102,7 @@
         <div class="limpia">
             <div class="menuDPackage">
                 <label>ELEMENTOS UML</label>
-                <button class="button"><img src="imagenes/package.png" alt="x"/><br>Package</button>
+                <button class="button" onclick="myFunction()"><img src="imagenes/package.png" alt="x"/><br>Package</button>
                 <button class="button"><img src="imagenes/packageContainer.png" alt="x"/><br>Package Container</button>
                 <button class="button"><img src="imagenes/dependecy.png" alt="x"/><br>Dependecy</button>
                 <button class="button"><img src="imagenes/merge.png" alt="x"/><br>Package Merge</button>
@@ -106,9 +117,13 @@
             </div>
             <div class="infoDPackage">
                 <label>PROPIEDADES</label>
+                <div id="elementoPackage" style="display: none">
+                    <label>Nombre del paquete</label>
+                    <input type="text" name="namePackage">
+                </div>
             </div>
             <div id="usePackageDiagram" class="divDiagrama">
-                a
+
             </div>
         </div>
     </body>
