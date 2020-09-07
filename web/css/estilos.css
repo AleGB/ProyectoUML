@@ -14,6 +14,8 @@ and open the template in the editor.
 
 html {
     font-family: "Lucida Sans", sans-serif;
+    overflow-y: auto; 
+    overflow-x: auto;
 }
 .encabezado {
     color: grey;

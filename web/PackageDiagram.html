@@ -9,41 +9,18 @@
         <script type="text/javascript" src="jsuml2/build/UDCore.js"></script>
         <script type="text/javascript" src="jsuml2/build//UDModules.js"></script>
         <script src="https://kit.fontawesome.com/d09e085a5a.js" crossorigin="anonymous"></script>
-        <script type="text/javascript">
-            window.onload = function () {
-                var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
-                dibujar(usepackageDiagram);
 
-            }
-//poner en el mismo div
-            function crear() {
-                var usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 950, height: 650});
-            }
-
-            function dibujar(e) {
-                e.draw();
-
-            }
-            function myFunction() {
-                var divPackage = document.getElementById('elementoPackage');
-                divPackage.style.display = 'block'; // show - use this for block elements (div, p)
-            }
-        </script>
         <style>
             .menuDPackage{
                 width: 15%;
                 float: left; 
-            }
-            .infoDPackage{
-                width: 20%;
-                float: left;
-                text-align: center;
-            }
+                margin: 0 30px;
 
-            .divDiagrama{
-                width: 65%;
+            }
+            #usePackageDiagram{
+                width: 85%;
                 float: left;
-                background-color: #33B7FF;
+                margin: 12px 30px;
             }
             .button {
                 width: 95%;
@@ -72,7 +49,7 @@
                 margin: 0px 10px;
             }
             @media screen and (max-width: 1000px) {
-                .menuDPackage, .infoDPackage{
+                .menuDPackage{
                     width: 50%;
                     margin-top: 0;
                 }
@@ -88,6 +65,19 @@
                 }
             }
         </style>
+        <script type="text/javascript">
+            var usepackageDiagram;
+            window.onload = function () {
+                usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
+                var paquete1 = new UMLPackage({x: 50, y: 50});
+                usepackageDiagram.addElement(paquete1);
+                paquete1.setName('Hola');
+                usepackageDiagram.draw();
+                usepackageDiagram.interaction(true);
+                usepackageDiagram.setUpdateHeightCanvas(true);
+                usepackageDiagram.setUpdateWidthCanvas(true);
+            }
+        </script>
     </head>
     <body>
         <div class="out">
@@ -99,32 +89,22 @@
         <div class="tituloD">
             <h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>
         </div>
-        <div class="limpia">
-            <div class="menuDPackage">
-                <label>ELEMENTOS UML</label>
-                <button class="button" onclick="myFunction()"><img src="imagenes/package.png" alt="x"/><br>Package</button>
-                <button class="button"><img src="imagenes/packageContainer.png" alt="x"/><br>Package Container</button>
-                <button class="button"><img src="imagenes/dependecy.png" alt="x"/><br>Dependecy</button>
-                <button class="button"><img src="imagenes/merge.png" alt="x"/><br>Package Merge</button>
-                <button class="button"><img src="imagenes/import.png" alt="x"/><br>Package Public Import</button>
-                <button class="button"><img src="imagenes/acces.png" alt="x"/><br>Package Private Import</button>
-                <button class="button"><img src="imagenes/note.png" alt="x"/><br>Note</button>
-                <label>ACCIONES</label>
-                <button class="button"><i class="fas fa-save"></i>Guardar</button>
-                <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
-                <button class="button"><i class="fas fa-backspace"></i>Borrar</button>
-                <button class="button"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
-            </div>
-            <div class="infoDPackage">
-                <label>PROPIEDADES</label>
-                <div id="elementoPackage" style="display: none">
-                    <label>Nombre del paquete</label>
-                    <input type="text" name="namePackage">
-                </div>
-            </div>
-            <div id="usePackageDiagram" class="divDiagrama">
-
-            </div>
+        <div class="menuDPackage">
+            <label>ELEMENTOS UML</label>
+            <button class="button" onclick="myFunction()">Package<br><img src="imagenes/package.png" alt="x"/></button>
+            <button class="button">Package Container<br><img src="imagenes/packageContainer.png" alt="x"/></button>
+            <button class="button">Dependecy<br><img src="imagenes/dependecy.png" alt="x"/></button>
+            <button class="button">Package Merge<br><img src="imagenes/merge.png" alt="x"/></button>
+            <button class="button">Package Public Impor<br><img src="imagenes/import.png" alt="x"/></button>
+            <button class="button">Package Private Import<br><img src="imagenes/acces.png" alt="x"/></button>
+            <button class="button">Note<br><img src="imagenes/note.png" alt="x"/></button>
+            <label>ACCIONES</label>
+            <button class="button"><i class="fas fa-save"></i>Guardar</button>
+            <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
+            <button class="button"><i class="fas fa-backspace"></i>Borrar</button>
+            <button class="button"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
+        </div>
+        <div id="usePackageDiagram">
         </div>
     </body>
 </html>
