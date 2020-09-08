@@ -14,21 +14,49 @@
             .menuDPackage{
                 width: 15%;
                 float: left; 
-                margin: 0 30px;
-
             }
-            #usePackageDiagram{
+            .contenedorDiagrama{
                 width: 85%;
                 float: left;
-                margin: 12px 30px;
+            }
+            .titDiagrama{
+                width: 20%;
+                float: left;
+            }
+            #usePackageDiagram{
+                width: 100%;
+                float: left;
+                margin: 0px 30px;
+            }
+
+            .titDiagrama ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .titDiagrama li {
+                font-family: "Lucida Sans", sans-serif; 
+                font-size: 12px;
+                text-align: center;
+                padding: 3px;
+                margin-left: 30px;
+                margin-top: 5px;
+                color: #000000;
+                border: 1px solid #333333;
+            }
+
+            .titDiagrama li:hover {
+                background-color: #585858;
+                color: white;
             }
             .button {
                 width: 95%;
-                background-color: #FB2A7F;
+                background-color: #2AD0FB;
                 border: none;
                 border-radius: 6px;
-                color: white;
-                padding: 15px 15px;
+                color: black;
+                padding: 10px 5px;
                 text-align: center;
                 font-size: 12px;
                 margin: 5px 2px;
@@ -65,19 +93,7 @@
                 }
             }
         </style>
-        <script type="text/javascript">
-            var usepackageDiagram;
-            window.onload = function () {
-                usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
-                var paquete1 = new UMLPackage({x: 50, y: 50});
-                usepackageDiagram.addElement(paquete1);
-                paquete1.setName('Hola');
-                usepackageDiagram.draw();
-                usepackageDiagram.interaction(true);
-                usepackageDiagram.setUpdateHeightCanvas(true);
-                usepackageDiagram.setUpdateWidthCanvas(true);
-            }
-        </script>
+
     </head>
     <body>
         <div class="out">
@@ -91,20 +107,100 @@
         </div>
         <div class="menuDPackage">
             <label>ELEMENTOS UML</label>
-            <button class="button" onclick="myFunction()">Package<br><img src="imagenes/package.png" alt="x"/></button>
-            <button class="button">Package Container<br><img src="imagenes/packageContainer.png" alt="x"/></button>
-            <button class="button">Dependecy<br><img src="imagenes/dependecy.png" alt="x"/></button>
-            <button class="button">Package Merge<br><img src="imagenes/merge.png" alt="x"/></button>
-            <button class="button">Package Public Impor<br><img src="imagenes/import.png" alt="x"/></button>
-            <button class="button">Package Private Import<br><img src="imagenes/acces.png" alt="x"/></button>
-            <button class="button">Note<br><img src="imagenes/note.png" alt="x"/></button>
+            <button class="button" id="btnPackage">Package<br><img src="imagenes/package.png" alt="x"/></button>
+            <button class="button" id="btnPackageContainer">Package Container<br><img src="imagenes/packageContainer.png" alt="x"/></button>
+            <button class="button" id="btnDependecy">Dependecy<br><img src="imagenes/dependecy.png" alt="x"/></button>
+            <button class="button" id="btnMerge">Package Merge<br><img src="imagenes/merge.png" alt="x"/></button>
+            <button class="button" id="btnPublicImport">Package Public Import<br><img src="imagenes/import.png" alt="x"/></button>
+            <button class="button" id="btnPrivateImport">Package Private Import<br><img src="imagenes/acces.png" alt="x"/></button>
+            <button class="button" id="btnNote">Note<br><img src="imagenes/note.png" alt="x"/></button>
+            <button class="button" id="btnLine">Line<br><img src="imagenes/line.png" alt="x"/></button>
             <label>ACCIONES</label>
             <button class="button"><i class="fas fa-save"></i>Guardar</button>
             <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
             <button class="button"><i class="fas fa-backspace"></i>Borrar</button>
             <button class="button"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
         </div>
-        <div id="usePackageDiagram">
+        <div class="contenedorDiagrama">
+            <div class="limpia">
+                <div class="titDiagrama">
+                    <ul>
+                        <li id="nameDiagram"></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="usePackageDiagram" class="limpia">
+
+            </div>
         </div>
+
+        <script type="text/javascript">
+            var usepackageDiagram;
+            var div = document.getElementById("usePackageDiagram");
+
+            window.onload = function () {
+                usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
+                usepackageDiagram.setName("Package Diagram");
+                document.getElementById("nameDiagram").innerHTML = usepackageDiagram.getName();
+                usepackageDiagram.draw();
+                usepackageDiagram.interaction(true);
+                usepackageDiagram.setUpdateHeightCanvas(true);
+                usepackageDiagram.setUpdateWidthCanvas(true);
+            };
+
+            var interaccionUnClick = function (f) {
+                usepackageDiagram.interaction(false);
+                var funcionCaptura = function (event) {
+                    var mousex = event.pageX - div.offsetLeft;
+                    var mousey = event.pageY - div.offsetTop;
+                    f(usepackageDiagram, mousex, mousey);
+                    div.onclick = false;
+                    usepackageDiagram.draw();
+                    usepackageDiagram.interaction(true);
+                };
+                div.onclick = funcionCaptura;
+            };
+
+
+
+            document.getElementById("btnPackage").onclick = function () {
+                function f(d, x, y) {
+
+                    d.addElement(new UMLPackage({x: x, y: y}));
+                }
+                interaccionUnClick(f);
+            };
+
+            document.getElementById("btnPackageContainer").onclick = function () {
+                function f(d, x, y) {
+
+                    d.addElement(new UMLPackageContainer({x: x, y: y}));
+                }
+                interaccionUnClick(f);
+            };
+
+            document.getElementById("btnNote").onclick = function () {
+                function f(d, x, y) {
+
+                    d.addElement(new UMLNote({x: x, y: y}));
+                }
+                interaccionUnClick(f);
+            };
+
+            var fn = function (value) {
+                if (value === '')
+                    value = 'Untitled';
+                usepackageDiagram.setName(value);
+
+                document.getElementById("nameDiagram").innerHTML = usepackageDiagram.getName();
+
+                usepackageDiagram.draw();
+            };
+
+            document.getElementById("nameDiagram").onclick = function () {
+                var dialog = new Dialog({text: 'Diagram name: ', cancelable: true});
+                dialog.show(fn, usepackageDiagram.getName());
+            };
+        </script>
     </body>
 </html>
