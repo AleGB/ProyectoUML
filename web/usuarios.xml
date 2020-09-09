@@ -1,0 +1,10 @@
+<usuarios atributo="valor">
+    <usuario>
+        <id>admin</id>
+        <password>admin</password>
+    </usuario>
+    <usuario>
+        <id>Karla</id>
+        <password>1234</password>
+    </usuario>
+</usuarios>

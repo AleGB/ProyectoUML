@@ -40,7 +40,7 @@ public class DPServlet extends HttpServlet {
             out.println("<title>Diagrama Paquetes</title>");
             out.println("<meta charset='UTF-8'>");
             out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
-            out.println("<link href='css/estilos.css' rel='stylesheet' type='text/css'>");
+            out.println("<link rel='stylesheet' type='text/css' href='css/estilos.css'>");
             out.println("</head>");
             out.println("<body>");
             out.println("<div class='out'>");
