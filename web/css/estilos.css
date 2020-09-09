@@ -130,18 +130,19 @@ label {
     float: left;
     padding: 10px 20px;
 }
-.btnNuevo input[type=submit] {
+.btnNuevo  a {
     font-family: "Lucida Sans", sans-serif; 
     width: 20%;
+    text-align: center;
+    padding: 5px 5px;
     background-color: #33B7FF;
     color: white;
-    padding: 5px 5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: center;
+    text-decoration: none;
 }
-.btnNuevo input[type=submit]:hover {
+.btnNuevo a:hover {
     background-color: #2595D2;
 }
 table {

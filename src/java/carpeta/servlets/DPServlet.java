@@ -52,7 +52,7 @@ public class DPServlet extends HttpServlet {
             out.println("<div class='tituloD'>");
             out.println("<h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
             out.println("<div class='btnNuevo'>");
-            out.println("<input type='submit' value='Crear nuevo Diagrama de Paquetes'>");
+            out.println(" <a href='PackageDiagram.html'>Crear nuevo diagrama de paquetes</a>");
             out.println("</div>");
             out.println("<div>");
             out.println("<table>");
