@@ -118,7 +118,7 @@
             <label>ACCIONES</label>
             <button class="button"><i class="fas fa-save"></i>Guardar</button>
             <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
-            <button class="button"><i class="fas fa-backspace"></i>Borrar</button>
+            <button class="button" id="btnborrar"><i class="fas fa-backspace"></i>Borrar</button>
             <button class="button"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
         </div>
         <div class="contenedorDiagrama">
@@ -137,7 +137,7 @@
         <script type="text/javascript">
             var usepackageDiagram;
             var div = document.getElementById("usePackageDiagram");
-
+            //inicializacion
             window.onload = function () {
                 usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
                 usepackageDiagram.setName("Package Diagram");
@@ -148,6 +148,7 @@
                 usepackageDiagram.setUpdateWidthCanvas(true);
             };
 
+            //Codigo para agregar elementos
             var interaccionUnClick = function (f) {
                 usepackageDiagram.interaction(false);
                 var funcionCaptura = function (event) {
@@ -160,8 +161,6 @@
                 };
                 div.onclick = funcionCaptura;
             };
-
-
 
             document.getElementById("btnPackage").onclick = function () {
                 function f(d, x, y) {
@@ -186,7 +185,62 @@
                 }
                 interaccionUnClick(f);
             };
-
+            //Codigo para relaciones
+            var interaccionDoubleClick = function (fdouble) {
+                usepackageDiagram.interaction(false);
+                var primer = function (event) {
+                    var x1 = event.pageX - div.offsetLeft;
+                    var y1 = event.pageY - div.offsetTop;
+                    var elem1 = usepackageDiagram.getElementByPoint(x1, y1);
+                    if (elem1 && elem1 instanceof Element) {
+                        div.onclick = false;
+                        var segundo = function (event) {
+                            var x2 = event.pageX - div.offsetLeft;
+                            var y2 = event.pageY - div.offsetTop;
+                            var elem2 = usepackageDiagram.getElementByPoint(x2, y2);
+                            if (elem2 && elem2 instanceof Element) {
+                                fdouble(usepackageDiagram, elem1, elem2);
+                                div.onclick = false;
+                                usepackageDiagram.draw();
+                                usepackageDiagram.interaction(true);
+                            }
+                        };
+                        div.onclick = segundo;
+                    }
+                };
+                div.onclick = primer;
+            };
+            document.getElementById("btnDependecy").onclick = function () {
+                function fdouble(d, a, b) {
+                    d.addElement(new UMLDependency({a: a, b: b}));
+                }
+                interaccionDoubleClick(fdouble);
+            };
+            document.getElementById("btnMerge").onclick = function () {
+                function fdouble(d, a, b) {
+                    d.addElement(new UMLPackageMerge({a: a, b: b}));
+                }
+                interaccionDoubleClick(fdouble);
+            };
+            document.getElementById("btnPublicImport").onclick = function () {
+                function fdouble(d, a, b) {
+                    d.addElement(new UMLPackagePublicImport({a: a, b: b}));
+                }
+                interaccionDoubleClick(fdouble);
+            };
+            document.getElementById("btnPrivateImport").onclick = function () {
+                function fdouble(d, a, b) {
+                    d.addElement(new UMLPackagePrivateImport({a: a, b: b}));
+                }
+                interaccionDoubleClick(fdouble);
+            };
+            document.getElementById("btnLine").onclick = function () {
+                function fdouble(d, a, b) {
+                    d.addElement(new UMLLine({a: a, b: b}));
+                }
+                interaccionDoubleClick(fdouble);
+            };
+            //Codigo para cambiar nombre del diagrama
             var fn = function (value) {
                 if (value === '')
                     value = 'Untitled';
@@ -200,6 +254,32 @@
             document.getElementById("nameDiagram").onclick = function () {
                 var dialog = new Dialog({text: 'Diagram name: ', cancelable: true});
                 dialog.show(fn, usepackageDiagram.getName());
+            };
+
+            //Borrar elemento
+            var borrar = function () {
+                var seleccion = function (event) {
+                    var x = event.pageX - div.offsetLeft;
+                    var y = event.pageY - div.offsetTop;
+                    var elem = usepackageDiagram.getElementByPoint(x, y);
+                    if (elem && elem instanceof Element) {
+                        var text = 'Do you want to delete the object' + elem.getType() + '?';
+                        //Create the text box
+                        var dialog = new Dialog({text: text, cancelable: true});
+                        //Function that changes the name of the diagram
+                        var fb = function () {
+                            usepackageDiagram.delElement(elem);
+                            usepackageDiagram.draw();
+                        };
+                        //Show the text box in the web page
+                        dialog.show(fb);
+                    }
+                };
+                div.onclick = seleccion;
+                ;
+            };
+            document.getElementById("btnborrar").onclick = function () {
+                borrar();
             };
         </script>
     </body>
