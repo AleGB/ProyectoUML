@@ -32,6 +32,7 @@ input[type=text], [type=password]{
 }
 
 label {
+    font-family: "Lucida Sans", sans-serif; 
     color: grey;
     padding: 12px 12px 12px 0;
     display: inline-block;
@@ -120,6 +121,7 @@ label {
     display: inline-block;
 }
 .tituloD {
+    font-family: "Lucida Sans", sans-serif; 
     color: #585858;
     text-align: center;
     padding: 10px;
