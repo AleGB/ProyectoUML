@@ -52,7 +52,7 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<a href='LogoutServlet'>SING OUT</a>");
         out.println("</div>");
         out.println("<div class='usuario'>");
-        out.println("<label>Bienvenido: " + nombre + "</label>");
+        out.println("<label>BIENVENIDO: " + nombre + "</label>");
         out.println("</div>");
         out.println("<div class='tituloD'>");
         out.println("<h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
