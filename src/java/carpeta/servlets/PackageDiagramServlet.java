@@ -41,8 +41,8 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<meta charset='UTF-8'>");
         out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
         out.println("<link rel='stylesheet' type='text/css' href='css/estilos.css'>");
-        out.println("<script type='text/javascript' src='js/funciones.js'></script>");
         out.println("<link type='text/css' rel='stylesheet' href='jsuml2/build/css/UDStyle.css' media='screen'/>");
+        out.println("<script type='text/javascript' src='js/funciones.js'></script>");
         out.println("<script type='text/javascript' src='jsuml2/build/UDCore.js'></script>");
         out.println("<script type='text/javascript' src='jsuml2/build//UDModules.js'></script>");
         out.println("<script src='https://kit.fontawesome.com/d09e085a5a.js' crossorigin='anonymous'></script>");
