@@ -31,54 +31,53 @@ public class DPServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-            String nombre = (String) session.getAttribute("usuario");
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Diagrama Paquetes</title>");
-            out.println("<meta charset='UTF-8'>");
-            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
-            out.println("<link rel='stylesheet' type='text/css' href='css/estilos.css'>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class='out'>");
-            out.println("<a href='LogoutServlet'>SING OUT</a>");
-            out.println("</div>");
-            out.println("<div class='usuario'>");
-            out.println("<label>Bienvenido: " + nombre + "</label>");
-            out.println("</div>");
-            out.println("<div class='tituloD'>");
-            out.println("<h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
-            out.println("<div class='btnNuevo'>");
-            out.println(" <a href='PackageDiagram.html'>Crear nuevo diagrama de paquetes</a>");
-            out.println("</div>");
-            out.println("<div>");
-            out.println("<table>");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        String nombre = (String) session.getAttribute("usuario");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Diagrama Paquetes</title>");
+        out.println("<meta charset='UTF-8'>");
+        out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+        out.println("<link rel='stylesheet' type='text/css' href='css/estilos.css'>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<div class='out'>");
+        out.println("<a href='LogoutServlet'>SING OUT</a>");
+        out.println("</div>");
+        out.println("<div class='usuario'>");
+        out.println("<label>Bienvenido: " + nombre + "</label>");
+        out.println("</div>");
+        out.println("<div class='tituloD'>");
+        out.println("<h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
+        out.println("</div>");
+        out.println("<div class='btnNuevo'>");
+        out.println(" <a href='PackageDiagram.html'>Crear nuevo diagrama de paquetes</a>");
+        out.println("</div>");
+        out.println("<div>");
+        out.println("<table>");
+        out.println("<tr>");
+        out.println("<th>Nombre del Diagrama de Paquetes</th>");
+        out.println("<th>Acciones</th>");
+        out.println("</tr>");
+        for (int i = 0; i < 1; i++) {
             out.println("<tr>");
-            out.println("<th>Nombre del Diagrama de Paquetes</th>");
-            out.println("<th>Acciones</th>");
+            out.println("<td>Ejemplo1</td>");
+            out.println("<td>");
+            out.println("<a href=''>Ver Diagrama</a>");
+            out.println("|");
+            out.println("<a href=''>Modificar Diagrama</a>");
+            out.println("|");
+            out.println("<a href=''>Eliminar Diagrama</a>");
+            out.println("|");
+            out.println("<a href=''>Copiar Diagrama</a>");
+            out.println("</td>");
             out.println("</tr>");
-            for (int i = 0; i < 1; i++) {
-                out.println("<tr>");
-                out.println("<td>Ejemplo1</td>");
-                out.println("<td>");
-                out.println("<a href=''>Ver Diagrama</a>");
-                out.println("|");
-                out.println("<a href=''>Modificar Diagrama</a>");
-                out.println("|");
-                out.println("<a href=''>Eliminar Diagrama</a>");
-                out.println("|");
-                out.println("<a href=''>Copiar Diagrama</a>");
-                out.println("</td>");
-                out.println("</tr>");
-            }
-            out.println("</table>");
-            out.println("</div>");
-            out.println("</body>");
-            out.println("</html>");
         }
+        out.println("</table>");
+        out.println("</div>");
+        out.println("</body>");
+        out.println("</html>");
     }
-
 }

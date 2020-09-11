@@ -169,3 +169,85 @@ td, th {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
+
+.menuDPackage{
+    width: 15%;
+    float: left; 
+}
+.contenedorDiagrama{
+    width: 85%;
+    float: left;
+}
+.titDiagrama{
+    width: 20%;
+    float: left;
+}
+#usePackageDiagram{
+    width: 100%;
+    float: left;
+    margin: 0px 30px;
+}
+
+.titDiagrama ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.titDiagrama li {
+    font-family: "Lucida Sans", sans-serif; 
+    font-size: 12px;
+    text-align: center;
+    padding: 3px;
+    margin-left: 30px;
+    margin-top: 5px;
+    color: #000000;
+    border: 1px solid #333333;
+}
+
+.titDiagrama li:hover {
+    background-color: #585858;
+    color: white;
+}
+.button {
+    width: 95%;
+    background-color: #2AD0FB;
+    border: none;
+    border-radius: 6px;
+    color: black;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 12px;
+    margin: 5px 2px;
+    opacity: 0.7;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase; 
+}
+.button:hover {opacity: 1}
+img {
+    padding: 0px 2px;
+    margin:  0px 10px;
+}
+.menuDPackage i {
+    font-size:20px;
+    margin: 0px 10px;
+}
+@media screen and (max-width: 1000px) {
+    .menuDPackage{
+        width: 50%;
+        margin-top: 0;
+    }
+    .divDiagrama{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .menuDPackage, .infoDPackage, .divDiagrama{
+        width: 100%;
+        margin-top: 0;
+    }
+}

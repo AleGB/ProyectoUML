@@ -16,6 +16,10 @@
         <servlet-name>DDServlet</servlet-name>
         <servlet-class>carpeta.servlets.DDServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PackageDiagramServlet</servlet-name>
+        <servlet-class>carpeta.servlets.PackageDiagramServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>DDServlet</servlet-name>
         <url-pattern>/DDServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PackageDiagramServlet</servlet-name>
+        <url-pattern>/PackageDiagramServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
