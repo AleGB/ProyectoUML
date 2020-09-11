@@ -68,11 +68,11 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<button class='button' id='btnNote'>Note<br><img src='imagenes/note.png' alt='x'/></button>");
         out.println("<button class='button' id='btnLine'>Line<br><img src='imagenes/line.png' alt='x'/></button>");
         out.println("<label>ACCIONES</label>");
-        out.println("<button class='button'><i class='fas fa-save'></i>Guardar</button>");
+        out.println("<button class='button' id='btnGuardar'><i class='fas fa-save'></i>Guardar</button>");
         out.println("<button class='button'><i class='far fa-comment-alt'></i>Comentario</button>");
-        out.println("<button class='button' id='btnborrar'><i class='fas fa-backspace'></i>Borrar</button>");
+        out.println("<button class='button' id='btnBorrar'><i class='fas fa-backspace'></i>Borrar</button>");
         out.println("<form action='DPServlet'>");
-        out.println("<button type='submit' class='button' id='btnregresar'><i class='fas fa-arrow-alt-circle-left'></i>Regresar</button>");
+        out.println("<button type='submit' class='button' id='btnRegresar'><i class='fas fa-arrow-alt-circle-left'></i>Regresar</button>");
         out.println("</form>");
         out.println("</div>");
         out.println("<div class='contenedorDiagrama'>");

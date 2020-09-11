@@ -148,11 +148,25 @@ var borrar = function () {
     div.onclick = seleccion;
     ;
 };
-document.getElementById("btnborrar").onclick = function () {
+document.getElementById("btnBorrar").onclick = function () {
     borrar();
 };
 
 //regresar
-document.getElementById("btnregresar").onclick = function () {
+document.getElementById("btnRegresar").onclick = function () {
     location.href = 'menuUsuario.html';
+};
+
+//guardar
+document.getElementById("btnGuardar").onclick = function () {
+    var xml = (new DOMParser()).parseFromString('<applicationtag/>', 'text/xml');
+    var app = xml.getElementsByTagName('applicationtag')[0];
+
+    app.appendChild(d1.getXML(xml));
+
+    app.appendChild(d2.getXML(xml));
+
+    return (XMLSerializer()).serializeToString(xml);
+
+
 };
