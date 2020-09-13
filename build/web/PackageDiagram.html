@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editor Diagrama de Paquetes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css" >
+        <link type="text/css" rel="stylesheet" href="jsuml2/build/css/UDStyle.css" media="screen"/>
+        <script type="text/javascript" src="jsuml2/build/UDCore.js"></script>
+        <script type="text/javascript" src="jsuml2/build//UDModules.js"></script>
+        <script src="https://kit.fontawesome.com/d09e085a5a.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="out">
+            <a href="LogoutServlet">SING OUT</a>
+        </div>
+        <div class="usuario">
+            <label id="usuario">Bienvenido:</label>
+        </div>
+        <div class="tituloD">
+            <h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>
+        </div>
+        <div class="menuDPackage">
+            <label>ELEMENTOS UML</label>
+            <button class="button" id="btnPackage">Package<br><img src="imagenes/package.png" alt="x"/></button>
+            <button class="button" id="btnPackageContainer">Package Container<br><img src="imagenes/packageContainer.png" alt="x"/></button>
+            <button class="button" id="btnDependecy">Dependecy<br><img src="imagenes/dependecy.png" alt="x"/></button>
+            <button class="button" id="btnMerge">Package Merge<br><img src="imagenes/merge.png" alt="x"/></button>
+            <button class="button" id="btnPublicImport">Package Public Import<br><img src="imagenes/import.png" alt="x"/></button>
+            <button class="button" id="btnPrivateImport">Package Private Import<br><img src="imagenes/acces.png" alt="x"/></button>
+            <button class="button" id="btnNote">Note<br><img src="imagenes/note.png" alt="x"/></button>
+            <button class="button" id="btnLine">Line<br><img src="imagenes/line.png" alt="x"/></button>
+            <label>ACCIONES</label>
+            <button class="button" id="btnSave"><i class="fas fa-save"></i>Guardar</button>
+            <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
+            <button class="button" id="btnBorrar"><i class="fas fa-backspace"></i>Borrar</button>
+            <form action="DPServlet">
+                <button type="submit" class="button" id="btnRegresar"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
+            </form>
+        </div>
+        <div class="contenedorDiagrama">
+            <div class="limpia">
+                <div class="titDiagrama">
+                    <ul>
+                        <li id="nameDiagram"></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="usePackageDiagram" class="limpia">
+
+            </div>
+        </div>
+         <script type="text/javascript" src="js/funciones.js"></script>
+    </body>
+</html>

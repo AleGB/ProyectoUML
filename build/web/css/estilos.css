@@ -1,0 +1,253 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2/09/2020, 03:12:12 PM
+    Author     : Ale
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    overflow-y: auto; 
+    overflow-x: auto;
+}
+.encabezado {
+    color: grey;
+    text-align: center;
+    padding: 15px;
+}
+
+input[type=text], [type=password]{
+    width: 40%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    font-family: "Lucida Sans", sans-serif; 
+    color: grey;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.col-sub input[type=submit] {
+    font-family: "Lucida Sans", sans-serif; 
+    width: 20%;
+    background-color: #33B7FF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: center;
+}
+
+.col-sub input[type=submit]:hover {
+    background-color: #2595D2;
+}
+
+.contenedor {
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.col-12 {
+    float: left;
+    text-align: center;
+    width: 12.5%;
+    margin-top: 6px;
+}
+.col-25 {
+    float: left;
+    text-align: center;
+    width: 30%;
+    margin-top: 6px;
+}
+.col2-57{
+    float: left;
+    width: 57.5%;
+    margin-top: 6px;
+}
+.col-sub {
+    width: 100%; 
+    text-align: center;
+    float: left;
+    padding: 50px;
+}
+
+.limpia:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .col-25, .col-12, .col2-57{
+        width: 100%;
+        margin-top: 0;
+    }
+    .col-sub input[type=submit] {
+        width: 50%;
+        margin-top: 0;
+    }
+    .col2-57{
+        text-align: center;
+    }
+}
+.out {
+    text-align: right;
+    font-size: 12px;
+    padding: 10px;
+}
+.out a{
+    padding: 5px 5px 5px 0;
+    display: inline-block;
+}
+.usuario{
+    text-align: left;
+    padding: 10px;
+}
+.usuario label{
+    color: #585858;
+    padding: 5px 5px 5px 0;
+    display: inline-block;
+}
+.tituloD {
+    font-family: "Lucida Sans", sans-serif; 
+    color: #585858;
+    text-align: center;
+    padding: 10px;
+}
+.btnNuevo{
+    width: 100%; 
+    text-align: left;
+    float: left;
+    padding: 10px 20px;
+}
+.btnNuevo  a {
+    font-family: "Lucida Sans", sans-serif; 
+    width: 20%;
+    text-align: center;
+    padding: 5px 5px;
+    background-color: #33B7FF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btnNuevo a:hover {
+    background-color: #2595D2;
+}
+table {
+    font-family: "Lucida Sans", sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+/* tr:nth-child(even) {
+                 background-color: #dddddd;
+             }*/
+.enlaces{
+    text-align: left;
+    padding: 15px;
+}
+.enlaces a {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.menuDPackage{
+    width: 15%;
+    float: left; 
+}
+.contenedorDiagrama{
+    width: 85%;
+    float: left;
+}
+.titDiagrama{
+    width: 20%;
+    float: left;
+}
+#usePackageDiagram{
+    width: 100%;
+    float: left;
+    margin: 0px 30px;
+}
+
+.titDiagrama ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.titDiagrama li {
+    font-family: "Lucida Sans", sans-serif; 
+    font-size: 12px;
+    text-align: center;
+    padding: 3px;
+    margin-left: 30px;
+    margin-top: 5px;
+    color: #000000;
+    border: 1px solid #333333;
+}
+
+.titDiagrama li:hover {
+    background-color: #585858;
+    color: white;
+}
+.button {
+    width: 95%;
+    background-color: #2AD0FB;
+    border: none;
+    border-radius: 6px;
+    color: black;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 12px;
+    margin: 5px 2px;
+    opacity: 0.7;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase; 
+}
+.button:hover {opacity: 1}
+img {
+    padding: 0px 2px;
+    margin:  0px 10px;
+}
+.menuDPackage i {
+    font-size:20px;
+    margin: 0px 10px;
+}
+@media screen and (max-width: 1000px) {
+    .menuDPackage{
+        width: 50%;
+        margin-top: 0;
+    }
+    .divDiagrama{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    .menuDPackage, .infoDPackage, .divDiagrama{
+        width: 100%;
+        margin-top: 0;
+    }
+}
