@@ -155,4 +155,3 @@ document.getElementById("btnBorrar").onclick = function () {
 document.getElementById("btnRegresar").onclick = function () {
     location.href = 'menuUsuario.html';
 };
-

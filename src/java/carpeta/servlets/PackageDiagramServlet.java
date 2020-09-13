@@ -54,7 +54,7 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<label>BIENVENIDO: " + nombre + "</label>");
         out.println("</div>");
         out.println("<div class='tituloD'>");
-        out.println("<h1>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
+        out.println("<h1 id='temporal'>CREACIÓN DE DIAGRAMAS DE PAQUETES (PACKAGE)</h1>");
         out.println("</div>");
         out.println("<div class='menuDPackage'>");
         out.println("<label>ELEMENTOS UML</label>");
