@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/estilos.css" >
-        <script type="text/javascript" src="js/funciones.js"></script>
         <link type="text/css" rel="stylesheet" href="jsuml2/build/css/UDStyle.css" media="screen"/>
         <script type="text/javascript" src="jsuml2/build/UDCore.js"></script>
         <script type="text/javascript" src="jsuml2/build//UDModules.js"></script>
@@ -32,11 +31,11 @@
             <button class="button" id="btnNote">Note<br><img src="imagenes/note.png" alt="x"/></button>
             <button class="button" id="btnLine">Line<br><img src="imagenes/line.png" alt="x"/></button>
             <label>ACCIONES</label>
-            <button class="button"><i class="fas fa-save"></i>Guardar</button>
+            <button class="button" id="btnSave"><i class="fas fa-save"></i>Guardar</button>
             <button class="button"><i class="far fa-comment-alt"></i>Comentario</button>
-            <button class="button" id="btnborrar"><i class="fas fa-backspace"></i>Borrar</button>
+            <button class="button" id="btnBorrar"><i class="fas fa-backspace"></i>Borrar</button>
             <form action="DPServlet">
-                <button type="submit" class="button" id="btnregresar"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
+                <button type="submit" class="button" id="btnRegresar"><i class="fas fa-arrow-alt-circle-left"></i>Regresar</button>
             </form>
         </div>
         <div class="contenedorDiagrama">
@@ -51,5 +50,6 @@
 
             </div>
         </div>
+         <script type="text/javascript" src="js/funciones.js"></script>
     </body>
 </html>

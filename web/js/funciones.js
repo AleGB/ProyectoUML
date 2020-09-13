@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var XlM1; 
 var usepackageDiagram;
 var div = document.getElementById("usePackageDiagram");
 //inicializacion
@@ -32,24 +33,28 @@ var interaccionUnClick = function (f) {
 
 document.getElementById("btnPackage").onclick = function () {
     function f(d, x, y) {
-
         d.addElement(new UMLPackage({x: x, y: y}));
+        XlM1 = d.getXMLString();
+        //arreglo.push(XlM1);
+   
     }
     interaccionUnClick(f);
 };
 
 document.getElementById("btnPackageContainer").onclick = function () {
     function f(d, x, y) {
-
         d.addElement(new UMLPackageContainer({x: x, y: y}));
+        XlM1 = d.getXMLString();
+        //arreglo.push(XlM1);
     }
     interaccionUnClick(f);
 };
 
 document.getElementById("btnNote").onclick = function () {
     function f(d, x, y) {
-
         d.addElement(new UMLNote({x: x, y: y}));
+        XlM1 = d.getXMLString();
+        //arreglo.push(XlM1); 
     }
     interaccionUnClick(f);
 };
@@ -81,30 +86,39 @@ var interaccionDoubleClick = function (fdouble) {
 document.getElementById("btnDependecy").onclick = function () {
     function fdouble(d, a, b) {
         d.addElement(new UMLDependency({a: a, b: b}));
+        XlM1 = d.getXMLString();
     }
     interaccionDoubleClick(fdouble);
 };
 document.getElementById("btnMerge").onclick = function () {
     function fdouble(d, a, b) {
         d.addElement(new UMLPackageMerge({a: a, b: b}));
+        XlM1 = d.getXMLString();
+    //return d;
     }
     interaccionDoubleClick(fdouble);
 };
 document.getElementById("btnPublicImport").onclick = function () {
     function fdouble(d, a, b) {
         d.addElement(new UMLPackagePublicImport({a: a, b: b}));
+    //return d;
+    XlM1 = d.getXMLString();
     }
     interaccionDoubleClick(fdouble);
 };
 document.getElementById("btnPrivateImport").onclick = function () {
     function fdouble(d, a, b) {
         d.addElement(new UMLPackagePrivateImport({a: a, b: b}));
+    //return d;
+    XlM1 = d.getXMLString();
     }
     interaccionDoubleClick(fdouble);
 };
 document.getElementById("btnLine").onclick = function () {
     function fdouble(d, a, b) {
         d.addElement(new UMLLine({a: a, b: b}));
+    //return d;
+    XlM1 = d.getXMLString();
     }
     interaccionDoubleClick(fdouble);
 };
@@ -155,3 +169,32 @@ document.getElementById("btnBorrar").onclick = function () {
 document.getElementById("btnRegresar").onclick = function () {
     location.href = 'menuUsuario.html';
 };
+
+
+/*document.getElementById("btnSave").onclick = function() {
+    var fso  = ActiveXObject("Scripting.FileSystemObject"); 
+    var fh = fso.CreateTextFile("c:\\Test.txt", true); 
+    fh.WriteLine(XlM1); 
+    fh.Close(); 
+};*/
+
+document.getElementById("btnSave").onclick = function() {
+    console.log(XlM1);
+    var textFileAsBlob = new Blob([XlM1], {type:'text/plain'});
+    var fileNameToSaveAs = "myNewFile.txt";
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "My Hidden Link";
+    window.URL = window.URL || window.webkitURL;
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    
+    downloadLink.click();
+};
+
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
