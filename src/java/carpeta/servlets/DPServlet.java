@@ -41,7 +41,6 @@ public class DPServlet extends HttpServlet {
         String ruta = request.getRealPath("/");
         SAXBuilder builder = new SAXBuilder();
         File xmlFile = new File(ruta + "PackageDiagramsXML.xml");
-
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -79,7 +78,7 @@ public class DPServlet extends HttpServlet {
             document = (Document) builder.build(xmlFile);
             Element rootNode = document.getRootElement();
             List list = rootNode.getChildren("diagrama");
-            for (int i = 0; i < 1; i++) {
+            for (int i = 0; i < list.size(); i++) {
                 Element node = (Element) list.get(i);
                 out.println("<tr>");
                 out.println("<td  id='elemento" + i + "'>");
@@ -91,7 +90,7 @@ public class DPServlet extends HttpServlet {
                 out.println("<td>");
                 out.println("<a href='PackageDiagramServlet'>Ver Diagrama</a>");
                 out.println("|");
-                out.println("<a onclick='modificar("+ i +")' href='PackageDiagramServlet'>Modificar Diagrama</a>");
+                out.println("<a id='m"+i+"' onclick='modificar("+ i +", this.id)' href='#'>Modificar Diagrama</a>");
                 out.println("|");
                 out.println("<a href=''>Eliminar Diagrama</a>");
                 out.println("|");

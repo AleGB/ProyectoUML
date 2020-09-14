@@ -40,7 +40,9 @@ public class PackageDiagramServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String nombre = (String) session.getAttribute("usuario");
-       
+        String nomArchivo= (String) request.getParameter("celda");
+        boolean permiso = Boolean.parseBoolean(request.getParameter("permiso"));
+
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
@@ -53,7 +55,7 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<script type='text/javascript' src='jsuml2/build//UDModules.js'></script>");
         out.println("<script src='https://kit.fontawesome.com/d09e085a5a.js' crossorigin='anonymous'></script>");
         out.println("</head>");
-        out.println("<body onload='load()'");
+        out.println("<body onload='load(" + permiso + ", "+nomArchivo+")'");
         out.println("<div class='out'>");
         out.println("<a href='LogoutServlet'>SING OUT</a>");
         out.println("</div>");

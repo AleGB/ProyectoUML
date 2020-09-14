@@ -1,10 +1,10 @@
 <menuPackage>
     <diagrama>
-        <id>
-            1
-        </id>
-        <nombre>
-            Package Diagram
-        </nombre>
+        <id>1</id>
+        <nombre>Package Diagram</nombre>
+    </diagrama>
+    <diagrama>
+        <id>2</id>
+        <nombre>Package Diagram</nombre>
     </diagrama>
 </menuPackage>

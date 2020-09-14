@@ -1,1 +1,8 @@
-<diagramaP><UMLPackageDiagram name='Package Diagram'><UMLPackage id='undefined:UMLPackage_0' x='356' y='155' width='102' height='50' backgroundColor='#c0e1c2' lineColor='#294253' lineWidth='1' tagValues=''><superitem id='stereotypes' visibleSubComponents='true'/><item id='name' value='Package name'/></UMLPackage></UMLPackageDiagram></diagramaP>
+<diagramaP>
+    <UMLPackageDiagram name="Package Diagram">
+        <UMLPackage id="undefined:UMLPackage_0" x="356" y="155" width="102" height="50" backgroundColor="#c0e1c2" lineColor="#294253" lineWidth="1" tagValues="">
+            <superitem id="stereotypes" visibleSubComponents="true"/>
+            <item id="name" value="Package name"/>
+        </UMLPackage>
+    </UMLPackageDiagram>
+</diagramaP>
