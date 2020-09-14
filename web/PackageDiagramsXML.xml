@@ -1,1 +1,10 @@
-<applicationtag/>
+<menuPackage>
+    <diagrama>
+        <id>
+            1
+        </id>
+        <nombre>
+            Package Diagram
+        </nombre>
+    </diagrama>
+</menuPackage>

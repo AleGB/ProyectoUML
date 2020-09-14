@@ -6,16 +6,72 @@
 var XlM1;
 var usepackageDiagram;
 var div = document.getElementById("usePackageDiagram");
+var bandera = true;
+var archivo = modificar();
+var doc;
 //inicializacion
-window.onload = function () {
+
+
+var modificar = function (id) {
+    var celda = document.getElementById("elemento" + id).innerHTML;
+    var extension = ".xml";
+    archivo = celda.concat(extension);
+    alert(archivo);
+}
+
+function extraerXML(xml) {
+    alert("hola3");
+    var xmlDoc = xml.responseXML;
+    doc = (new XMLSerializer()).serializeToString(xmlDoc);
+    alert(doc);
+    var xmlnode = (new DOMParser()).parseFromString(doc, 'text/xml');
     usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
-    usepackageDiagram.setName("Package Diagram");
+    usepackageDiagram.setName(xmlnode.getElementsByTagName("UMLPackageDiagram")[0].getAttributeNode("name").nodeValue);
     document.getElementById("nameDiagram").innerHTML = usepackageDiagram.getName();
+    usepackageDiagram.setXML(xmlnode);
     usepackageDiagram.draw();
     usepackageDiagram.interaction(true);
     usepackageDiagram.setUpdateHeightCanvas(true);
     usepackageDiagram.setUpdateWidthCanvas(true);
-};
+}
+
+function peticion() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            alert("hola2");
+            extraerXML(this);
+        }
+    };
+    alert("hola");
+    xhr.open("GET", "1.xml", true);
+    xhr.send();
+}
+;
+function load() {
+    alert("hola");
+    alert(archivo);
+
+    if (archivo === "") {
+        usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
+        usepackageDiagram.setName("Package Diagram");
+        document.getElementById("nameDiagram").innerHTML = usepackageDiagram.getName();
+        usepackageDiagram.draw();
+        usepackageDiagram.interaction(true);
+        usepackageDiagram.setUpdateHeightCanvas(true);
+        usepackageDiagram.setUpdateWidthCanvas(true);
+    } else {
+        // var xml = "<diagramaP><UMLPackageDiagram name='Package Diagram'><UMLPackage id='undefined:UMLPackage_0' x='356' y='155' width='102' height='50' backgroundColor='#c0e1c2' lineColor='#294253' lineWidth='1' tagValues=''><superitem id='stereotypes' visibleSubComponents='true'/><item id='name' value='Package name'/></UMLPackage></UMLPackageDiagram></diagramaP>";
+        peticion();
+
+    }
+}
+;
+
+
+
+
+
 
 //Codigo para agregar elementos
 var interaccionUnClick = function (f) {
@@ -167,7 +223,7 @@ document.getElementById("btnBorrar").onclick = function () {
 
 //regresar
 document.getElementById("btnRegresar").onclick = function () {
-    location.href = 'menuUsuario.html';
+    location.href = "/DPServlet";
 };
 
 

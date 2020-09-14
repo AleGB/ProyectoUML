@@ -5,13 +5,21 @@
  */
 package carpeta.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 
 /**
  *
@@ -30,6 +38,10 @@ public class DPServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String ruta = request.getRealPath("/");
+        SAXBuilder builder = new SAXBuilder();
+        File xmlFile = new File(ruta + "PackageDiagramsXML.xml");
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -58,25 +70,44 @@ public class DPServlet extends HttpServlet {
         out.println("<div>");
         out.println("<table>");
         out.println("<tr>");
+        out.println("<th>ID</th>");
         out.println("<th>Nombre del Diagrama de Paquetes</th>");
         out.println("<th>Acciones</th>");
         out.println("</tr>");
-        for (int i = 0; i < 1; i++) {
-            out.println("<tr>");
-            out.println("<td>Ejemplo1</td>");
-            out.println("<td>");
-            out.println("<a href=''>Ver Diagrama</a>");
-            out.println("|");
-            out.println("<a href=''>Modificar Diagrama</a>");
-            out.println("|");
-            out.println("<a href=''>Eliminar Diagrama</a>");
-            out.println("|");
-            out.println("<a href=''>Copiar Diagrama</a>");
-            out.println("</td>");
-            out.println("</tr>");
+        Document document;
+        try {
+            document = (Document) builder.build(xmlFile);
+            Element rootNode = document.getRootElement();
+            List list = rootNode.getChildren("diagrama");
+            for (int i = 0; i < 1; i++) {
+                Element node = (Element) list.get(i);
+                out.println("<tr>");
+                out.println("<td  id='elemento" + i + "'>");
+                out.println(node.getChildText("id"));
+                out.println("</td>");
+                out.println("<td>");
+                out.println(node.getChildText("nombre"));
+                out.println("</td>");
+                out.println("<td>");
+                out.println("<a href='PackageDiagramServlet'>Ver Diagrama</a>");
+                out.println("|");
+                out.println("<a onclick='modificar("+ i +")' href='PackageDiagramServlet'>Modificar Diagrama</a>");
+                out.println("|");
+                out.println("<a href=''>Eliminar Diagrama</a>");
+                out.println("|");
+                out.println("<a href=''>Copiar Diagrama</a>");
+                out.println("</td>");
+                out.println("</tr>");
+            }
+
+        } catch (JDOMException ex) {
+            ex.printStackTrace();
         }
+
         out.println("</table>");
         out.println("</div>");
+        out.println("<script type='text/javascript' src='js/AccionesTabla.js'></script>");
+        out.println("<script type='text/javascript' src='js/funciones.js'></script>");
         out.println("</body>");
         out.println("</html>");
     }

@@ -5,13 +5,19 @@
  */
 package carpeta.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.Document;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 
 /**
  *
@@ -34,6 +40,7 @@ public class PackageDiagramServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String nombre = (String) session.getAttribute("usuario");
+       
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
@@ -46,7 +53,7 @@ public class PackageDiagramServlet extends HttpServlet {
         out.println("<script type='text/javascript' src='jsuml2/build//UDModules.js'></script>");
         out.println("<script src='https://kit.fontawesome.com/d09e085a5a.js' crossorigin='anonymous'></script>");
         out.println("</head>");
-        out.println("<body>");
+        out.println("<body onload='load()'");
         out.println("<div class='out'>");
         out.println("<a href='LogoutServlet'>SING OUT</a>");
         out.println("</div>");
