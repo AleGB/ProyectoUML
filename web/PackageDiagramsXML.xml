@@ -7,4 +7,8 @@
         <id>2</id>
         <nombre>Package Diagram</nombre>
     </diagrama>
+    <diagrama>
+        <id>3</id>
+        <nombre>Package Diagram</nombre>
+    </diagrama>
 </menuPackage>

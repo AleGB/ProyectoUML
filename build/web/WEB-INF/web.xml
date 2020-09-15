@@ -21,8 +21,8 @@
         <servlet-class>carpeta.servlets.PackageDiagramServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ModificarServlet</servlet-name>
-        <servlet-class>carpeta.servlets.ModificarServlet</servlet-class>
+        <servlet-name>VerDiagramaServlet</servlet-name>
+        <servlet-class>carpeta.servlets.VerDiagramaServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -45,8 +45,8 @@
         <url-pattern>/PackageDiagramServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ModificarServlet</servlet-name>
-        <url-pattern>/ModificarServlet</url-pattern>
+        <servlet-name>VerDiagramaServlet</servlet-name>
+        <url-pattern>/VerDiagramaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

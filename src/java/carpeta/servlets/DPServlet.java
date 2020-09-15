@@ -88,7 +88,7 @@ public class DPServlet extends HttpServlet {
                 out.println(node.getChildText("nombre"));
                 out.println("</td>");
                 out.println("<td>");
-                out.println("<a href='PackageDiagramServlet'>Ver Diagrama</a>");
+                out.println("<a id='v"+i+"' href='javascript:ver("+ i +", this.id)'>Ver Diagrama</a>");
                 out.println("|");
                 out.println("<a id='m"+i+"' onclick='modificar("+ i +", this.id)' href='#'>Modificar Diagrama</a>");
                 out.println("|");
@@ -106,7 +106,6 @@ public class DPServlet extends HttpServlet {
         out.println("</table>");
         out.println("</div>");
         out.println("<script type='text/javascript' src='js/AccionesTabla.js'></script>");
-        out.println("<script type='text/javascript' src='js/funciones.js'></script>");
         out.println("</body>");
         out.println("</html>");
     }

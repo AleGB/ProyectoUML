@@ -6,12 +6,11 @@
 var XlM1;
 var usepackageDiagram;
 var div = document.getElementById("usePackageDiagram");
-var doc;
 //inicializacion
 
 function extraerXML(xml) {
     var xmlDoc = xml.responseXML;
-    doc = (new XMLSerializer()).serializeToString(xmlDoc);
+    var doc = (new XMLSerializer()).serializeToString(xmlDoc);
     var xmlnode = (new DOMParser()).parseFromString(doc, 'text/xml');
     usepackageDiagram = new UMLPackageDiagram({id: 'usePackageDiagram', width: 1000, height: 580});
     usepackageDiagram.setName(xmlnode.getElementsByTagName("UMLPackageDiagram")[0].getAttributeNode("name").nodeValue);
@@ -44,7 +43,7 @@ function load(permiso, nombre) {
         usepackageDiagram.setUpdateHeightCanvas(true);
         usepackageDiagram.setUpdateWidthCanvas(true);
     } else {
-        var archivo = nombre+".xml";
+        var archivo = nombre + ".xml";
         peticion(archivo);
     }
 }
