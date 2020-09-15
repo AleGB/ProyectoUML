@@ -34,7 +34,7 @@ public class EliminarDiagramaServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String ruta = request.getRealPath("/");
+        String ruta = request.getRealPath("/xlms/");
         String nomArchivo = (String) request.getParameter("celda");
         int numArchivo = Integer.parseInt(nomArchivo);
         File archivo = new File(ruta + nomArchivo + ".xml");

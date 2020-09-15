@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package carpeta.servlets;
 
 import java.io.File;
@@ -38,7 +33,7 @@ public class DPServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String ruta = request.getRealPath("/");
+        String ruta = request.getRealPath("/xmls/");
         SAXBuilder builder = new SAXBuilder();
         File xmlFile = new File(ruta + "PackageDiagramsXML.xml");
         response.setContentType("text/html;charset=UTF-8");

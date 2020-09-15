@@ -216,8 +216,11 @@ document.getElementById("btnSave").onclick = function () {
     app.appendChild(usepackageDiagram.getXML(xml));
     var txt = (new XMLSerializer()).serializeToString(xml);
 
-    console.log(xml);
-    var textFileAsBlob = new Blob([txt], {type: 'text/plain'});
+    console.log(txt);
+    
+    location.href = "http://localhost:8084/ProyectoUML/SaveServlet?parametro1="+String(txt);
+    
+    /*var textFileAsBlob = new Blob([txt], {type: 'text/plain'});
     var fileNameToSaveAs = "myNewFile.txt";
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
@@ -228,10 +231,10 @@ document.getElementById("btnSave").onclick = function () {
     downloadLink.style.display = "none";
     document.body.appendChild(downloadLink);
 
-    downloadLink.click();
+    downloadLink.click();*/
 };
 
-function destroyClickedElement(event)
+/*function destroyClickedElement(event)
 {
     document.body.removeChild(event.target);
-}
+}*/
