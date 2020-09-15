@@ -28,6 +28,10 @@
         <servlet-name>EliminarDiagramaServlet</servlet-name>
         <servlet-class>carpeta.servlets.EliminarDiagramaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SaveServlet</servlet-name>
+        <servlet-class>carpeta.servlets.SaveServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>EliminarDiagramaServlet</servlet-name>
         <url-pattern>/EliminarDiagramaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveServlet</servlet-name>
+        <url-pattern>/SaveServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
