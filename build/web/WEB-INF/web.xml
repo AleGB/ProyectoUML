@@ -24,6 +24,10 @@
         <servlet-name>VerDiagramaServlet</servlet-name>
         <servlet-class>carpeta.servlets.VerDiagramaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarDiagramaServlet</servlet-name>
+        <servlet-class>carpeta.servlets.EliminarDiagramaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>VerDiagramaServlet</servlet-name>
         <url-pattern>/VerDiagramaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarDiagramaServlet</servlet-name>
+        <url-pattern>/EliminarDiagramaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

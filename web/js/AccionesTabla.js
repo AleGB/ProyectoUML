@@ -7,11 +7,14 @@ var modificar = function (id, elem) {
     var celda = document.getElementById("elemento" + id).innerHTML;
     document.getElementById(elem).setAttribute('href', '/ProyectoUML/PackageDiagramServlet?celda=' + celda + '&permiso=true');
 };
-var ver = function (id, elem) {
+var ver = function (id) {
     var celda = document.getElementById("elemento" + id).innerHTML;
-    window.open('/ProyectoUML/VerDiagramaServlet?celda=' + celda, "ventana1","width=1100,height=600,scrollbars=YES,resizable=YES");
+    window.open('/ProyectoUML/VerDiagramaServlet?celda=' + celda, "ventana1", "width=1100,height=600,scrollbars=YES,resizable=YES");
 };
-
+var eliminar = function (id, elem) {
+    var celda = document.getElementById("elemento" + id).innerHTML;
+    document.getElementById(elem).setAttribute('href', '/ProyectoUML/EliminarDiagramaServlet?celda=' + celda);
+};
 function crearVisor(xml) {
     var xmlDoc = xml.responseXML;
     var doc = (new XMLSerializer()).serializeToString(xmlDoc);

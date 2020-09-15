@@ -1,17 +1,17 @@
 <menuPackage>
-    <diagrama>
+    <diagrama idDiagrama="1">
         <id>1</id>
         <nombre>Package Diagram</nombre>
     </diagrama>
-    <diagrama>
+    <diagrama idDiagrama="2">
         <id>2</id>
         <nombre>Package Diagram</nombre>
     </diagrama>
-    <diagrama>
+    <diagrama idDiagrama="3">
         <id>3</id>
         <nombre>Package Diagram</nombre>
     </diagrama>
-    <diagrama>
+    <diagrama idDiagrama="4">
         <id>4</id>
         <nombre>diagrama prueba</nombre>
     </diagrama>
