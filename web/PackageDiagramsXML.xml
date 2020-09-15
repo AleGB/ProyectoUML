@@ -11,4 +11,8 @@
         <id>3</id>
         <nombre>Package Diagram</nombre>
     </diagrama>
+    <diagrama>
+        <id>4</id>
+        <nombre>diagrama prueba</nombre>
+    </diagrama>
 </menuPackage>

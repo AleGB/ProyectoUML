@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var packageDiagram;
 var modificar = function (id, elem) {
     var celda = document.getElementById("elemento" + id).innerHTML;
     document.getElementById(elem).setAttribute('href', '/ProyectoUML/PackageDiagramServlet?celda=' + celda + '&permiso=true');
@@ -16,11 +15,9 @@ var ver = function (id, elem) {
 function crearVisor(xml) {
     var xmlDoc = xml.responseXML;
     var doc = (new XMLSerializer()).serializeToString(xmlDoc);
-    alert(doc);
     var xmlnode = (new DOMParser()).parseFromString(doc, 'text/xml');
-    packageDiagram = new UMLPackageDiagram({id: 'divDiagrama', width: 1000, height: 580});
+    var packageDiagram = new UMLPackageDiagram({id: 'diagramaV', width: 1000, height: 580});
     packageDiagram.setName(xmlnode.getElementsByTagName("UMLPackageDiagram")[0].getAttributeNode("name").nodeValue);
-    //document.getElementById("nameDiagram").innerHTML = usepackageDiagram.getName();
     packageDiagram.setXML(xmlnode);
     packageDiagram.draw();
     packageDiagram.interaction(true);
@@ -32,7 +29,6 @@ function buscar(arch) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            alert("entre a buscar");
             crearVisor(this);
         }
     };
@@ -41,9 +37,7 @@ function buscar(arch) {
 }
 
 function cargarDiagrama(nombre) {
-    alert(nombre);
     var archivo = nombre + ".xml";
-    alert(archivo);
     buscar(archivo);
 }
 ;

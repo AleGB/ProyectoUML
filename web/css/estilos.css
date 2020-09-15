@@ -187,7 +187,12 @@ td, th {
     float: left;
     margin: 0px 30px;
 }
-
+#diagramaV{
+    width: 100%;
+    float: left;
+    margin: 0px 15px;
+    background-color: aqua;
+}
 .titDiagrama ul {
     list-style-type: none;
     margin: 0;
