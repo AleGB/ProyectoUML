@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
         String usuario, pass;
         usuario = request.getParameter("IDuser");
         pass = request.getParameter("pass");
-        String ruta = request.getRealPath("/");
+        String ruta = request.getRealPath("/xmls/");
         SAXBuilder builder = new SAXBuilder();
         File xmlFile = new File(ruta + "usuarios.xml");
         PrintWriter out = response.getWriter();
