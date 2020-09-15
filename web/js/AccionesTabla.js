@@ -15,6 +15,10 @@ var eliminar = function (id, elem) {
     var celda = document.getElementById("elemento" + id).innerHTML;
     document.getElementById(elem).setAttribute('href', '/ProyectoUML/EliminarDiagramaServlet?celda=' + celda);
 };
+var copiar = function (id, elem) {
+    var celda = document.getElementById("elemento" + id).innerHTML;
+    document.getElementById(elem).setAttribute('href', '/ProyectoUML/CopiarDiagramaServlet?celda=' + celda);
+};
 function crearVisor(xml) {
     var xmlDoc = xml.responseXML;
     var doc = (new XMLSerializer()).serializeToString(xmlDoc);

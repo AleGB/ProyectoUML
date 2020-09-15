@@ -94,7 +94,7 @@ public class DPServlet extends HttpServlet {
                 out.println("|");
                 out.println("<a id='e"+i+"' onclick='eliminar("+ i +", this.id)' href='#'>Eliminar Diagrama</a>");
                 out.println("|");
-                out.println("<a href=''>Copiar Diagrama</a>");
+                out.println("<a id='c"+i+"' onclick='copiar("+ i +", this.id)' href=''>Copiar Diagrama</a>");
                 out.println("</td>");
                 out.println("</tr>");
             }
