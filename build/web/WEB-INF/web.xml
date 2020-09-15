@@ -29,13 +29,8 @@
         <servlet-class>carpeta.servlets.EliminarDiagramaServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>CopiarDiagramaServlet</servlet-name>
         <servlet-class>carpeta.servlets.CopiarDiagramaServlet</servlet-class>
-=======
-        <servlet-name>SaveServlet</servlet-name>
-        <servlet-class>carpeta.servlets.SaveServlet</servlet-class>
->>>>>>> origin/master
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -66,13 +61,8 @@
         <url-pattern>/EliminarDiagramaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>CopiarDiagramaServlet</servlet-name>
         <url-pattern>/CopiarDiagramaServlet</url-pattern>
-=======
-        <servlet-name>SaveServlet</servlet-name>
-        <url-pattern>/SaveServlet</url-pattern>
->>>>>>> origin/master
     </servlet-mapping>
     <session-config>
         <session-timeout>
