@@ -216,9 +216,9 @@ document.getElementById("btnSave").onclick = function () {
     app.appendChild(usepackageDiagram.getXML(xml));
     var txt = (new XMLSerializer()).serializeToString(xml);
 
-    console.log(xml);
+    console.log(txt);
     
-    location.href = "http://localhost:8084/ProyectoUML/SaveServlet?parametro1="+app;
+    location.href = "http://localhost:8084/ProyectoUML/SaveServlet?parametro1="+String(txt);
     
     /*var textFileAsBlob = new Blob([txt], {type: 'text/plain'});
     var fileNameToSaveAs = "myNewFile.txt";
